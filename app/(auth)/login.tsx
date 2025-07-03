@@ -1,55 +1,48 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
-import { useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 export default function LoginScreen() {
-  const router = useRouter();
+  
+  const handleUserLogin = () => {
+    router.replace('/(user)');
+  };
 
-  const handleGoogleLogin = () => {
-    // Simulación de login con Google
-    // Aquí implementarías la autenticación real con Google
-    Alert.alert(
-      'Seleccionar tipo de usuario',
-      'Para esta demo, selecciona tu tipo de usuario:',
-      [
-        {
-          text: 'Usuario',
-          onPress: () => router.replace('/(user)/(tabs)/')
-        },
-        {
-          text: 'Autoridad',
-          onPress: () => router.replace('/(authority)/(tabs)/')
-        },
-        {
-          text: 'Admin',
-          onPress: () => router.replace('/(admin)/(tabs)/')
-        }
-      ]
-    );
+  const handleAuthorityLogin = () => {
+    router.replace('/(authority)');
+  };
+
+  const handleAdminLogin = () => {
+    router.replace('/(admin)');
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Deficiencias Viales</Text>
-        <Text style={styles.subtitle}>Reporta y gestiona problemas en tu ciudad</Text>
-      </View>
-
+    <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.iconContainer}>
-          <Text style={styles.icon}>🚧</Text>
-        </View>
-
-        <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
-          <Text style={styles.googleIcon}>G</Text>
-          <Text style={styles.googleButtonText}>Continuar con Google</Text>
+        <Text style={styles.title}>Deficiencias Viales</Text>
+        
+        <TouchableOpacity style={styles.button} onPress={handleUserLogin}>
+          <Ionicons name="person" size={24} color="#fff" />
+          <Text style={styles.buttonText}>Ingresar como Usuario</Text>
         </TouchableOpacity>
 
-        <Text style={styles.disclaimer}>
-          Al continuar, aceptas nuestros términos y condiciones
-        </Text>
+        <TouchableOpacity style={styles.button} onPress={handleAuthorityLogin}>
+          <Ionicons name="shield" size={24} color="#fff" />
+          <Text style={styles.buttonText}>Ingresar como Autoridad</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.button} onPress={handleAdminLogin}>
+          <Ionicons name="settings" size={24} color="#fff" />
+          <Text style={styles.buttonText}>Ingresar como Admin</Text>
+        </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -58,69 +51,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
-  header: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#333',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    textAlign: 'center',
-  },
   content: {
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 40,
-  },
-  iconContainer: {
     alignItems: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
     marginBottom: 40,
+    textAlign: 'center',
   },
-  icon: {
-    fontSize: 80,
-  },
-  googleButton: {
+  button: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
-    borderWidth: 1,
-    borderColor: '#ddd',
+    backgroundColor: '#007AFF',
+    padding: 15,
     borderRadius: 8,
-    paddingVertical: 15,
-    paddingHorizontal: 20,
-    marginBottom: 20,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    marginBottom: 15,
+    width: '100%',
+    justifyContent: 'center',
   },
-  googleIcon: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#4285f4',
-    marginRight: 15,
-  },
-  googleButtonText: {
-    flex: 1,
-    textAlign: 'center',
+  buttonText: {
+    color: '#fff',
     fontSize: 16,
-    fontWeight: '500',
-    color: '#333',
-  },
-  disclaimer: {
-    fontSize: 12,
-    color: '#999',
-    textAlign: 'center',
-    lineHeight: 16,
+    fontWeight: '600',
+    marginLeft: 10,
   },
 });

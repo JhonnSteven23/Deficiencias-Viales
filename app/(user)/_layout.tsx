@@ -1,28 +1,40 @@
+import {
+  FontAwesome5,
+  Ionicons,
+  MaterialIcons
+} from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { useColorScheme } from 'react-native';
 
-export default function TabLayout() {
+export default function UserLayout() {
+  const colorScheme = useColorScheme();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#2f95dc',
+        tabBarActiveTintColor: '#007AFF',
+        tabBarInactiveTintColor: 'gray',
         headerShown: false,
-      }}>
+        tabBarStyle: {
+          backgroundColor: colorScheme === 'dark' ? '#000' : '#fff',
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: 'Inicio',
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'home' : 'home-outline'} color={color} size={28} />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="reportes"
+        name="reporte1"
         options={{
-          title: 'Reportes',
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'list' : 'list-outline'} color={color} size={28} />
+          title: 'Reportar',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="report-problem" size={size} color={color} />
           ),
         }}
       />
@@ -30,8 +42,17 @@ export default function TabLayout() {
         name="perfil"
         options={{
           title: 'Perfil',
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'person' : 'person-outline'} color={color} size={28} />
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="user" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="notificaciones"
+        options={{
+          title: 'Avisos',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="notifications" size={size} color={color} />
           ),
         }}
       />

@@ -1,16 +1,15 @@
-import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
-import { useEffect } from 'react';
+import { Stack } from 'expo-router';
 import { SplashScreen } from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { AuthProvider } from '@/context/AuthContext';
+import { useEffect } from 'react';
 
 // Prevenir que el splash screen se oculte automáticamente
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    // Tus fuentes aquí
+    // Tus fuentes aquí si las necesitas
   });
 
   useEffect(() => {
@@ -24,7 +23,7 @@ export default function RootLayout() {
   }
 
   return (
-    <AuthProvider>
+    <>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(auth)" />
         <Stack.Screen name="(user)" />
@@ -33,6 +32,6 @@ export default function RootLayout() {
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
-    </AuthProvider>
+    </>
   );
 }
