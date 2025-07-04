@@ -6,30 +6,12 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } fr
 export default function UserDashboard() {
   const router = useRouter();
 
-  const stats = [
-    { label: 'Reportes Enviados', value: '5', color: '#4CAF50' },
-    { label: 'En Proceso', value: '2', color: '#FF9800' },
-    { label: 'Completados', value: '3', color: '#2196F3' },
-  ];
-
   const quickActions = [
     { 
       icon: '📝', 
       title: 'Nuevo Reporte', 
       subtitle: 'Reportar una deficiencia vial',
       onPress: () => router.push('/(user)/reporte1')
-    },
-    { 
-      icon: '🔔', 
-      title: 'Notificaciones', 
-      subtitle: 'Ver estado de mis reportes',
-      onPress: () => router.push('/(user)/(tabs)/notificaciones')
-    },
-    { 
-      icon: '👤', 
-      title: 'Mi Perfil', 
-      subtitle: 'Configurar mi cuenta',
-      onPress: () => router.push('/(user)/(tabs)/perfil')
     },
   ];
 
@@ -38,20 +20,8 @@ export default function UserDashboard() {
       <StatusBar style="dark" />
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.greeting}>¡Hola, Usuario!</Text>
-        <Text style={styles.subtitle}>¿Qué problema vial encontraste hoy?</Text>
-      </View>
-
-      <View style={styles.statsContainer}>
-        <Text style={styles.sectionTitle}>Mis Reportes</Text>
-        <View style={styles.statsGrid}>
-          {stats.map((stat, index) => (
-            <View key={index} style={[styles.statCard, { borderLeftColor: stat.color }]}>
-              <Text style={styles.statValue}>{stat.value}</Text>
-              <Text style={styles.statLabel}>{stat.label}</Text>
-            </View>
-          ))}
-        </View>
+        <Text style={styles.greeting}>¡Reporte de deficiencias en Cochabamba</Text>
+        <Text style={styles.subtitle}>Puedes reportar baches alcantarillas y cortes de luz en postes</Text>
       </View>
 
       <View style={styles.actionsContainer}>
@@ -72,17 +42,6 @@ export default function UserDashboard() {
         ))}
       </View>
 
-      <View style={styles.recentActivity}>
-        <Text style={styles.sectionTitle}>Actividad Reciente</Text>
-        <View style={styles.activityCard}>
-          <Text style={styles.activityTitle}>Bache reportado en Av. Principal</Text>
-          <Text style={styles.activityStatus}>En proceso • Hace 2 días</Text>
-        </View>
-        <View style={styles.activityCard}>
-          <Text style={styles.activityTitle}>Poste dañado en Calle 5</Text>
-          <Text style={styles.activityStatus}>Completado • Hace 1 semana</Text>
-        </View>
-      </View>
     </ScrollView>
     </SafeAreaView>
   );
