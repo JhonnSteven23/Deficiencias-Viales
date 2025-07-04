@@ -1,26 +1,11 @@
-import React, { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  ScrollView, 
-  TouchableOpacity, 
-  Alert,
-  Switch 
-} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { Alert, ScrollView, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';
 
 export default function PerfilScreen() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [locationEnabled, setLocationEnabled] = useState(true);
 
-  const handleEditProfile = () => {
-    Alert.alert(
-      'Editar Perfil',
-      'Esta funcionalidad permitirá editar la información del usuario',
-      [{ text: 'OK' }]
-    );
-  };
 
   const handleLogout = () => {
     Alert.alert(
@@ -49,9 +34,6 @@ export default function PerfilScreen() {
         </View>
         <Text style={styles.userName}>Juan Pérez</Text>
         <Text style={styles.userEmail}>juan.perez@email.com</Text>
-        <TouchableOpacity style={styles.editButton} onPress={handleEditProfile}>
-          <Text style={styles.editButtonText}>Editar Perfil</Text>
-        </TouchableOpacity>
       </View>
 
       <View style={styles.statsContainer}>
@@ -101,43 +83,10 @@ export default function PerfilScreen() {
             trackColor={{ false: '#767577', true: '#2f95dc' }}
           />
         </View>
-
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingLeft}>
-            <Ionicons name="language-outline" size={24} color="#2f95dc" />
-            <View style={styles.settingText}>
-              <Text style={styles.settingTitle}>Idioma</Text>
-              <Text style={styles.settingSubtitle}>Español</Text>
-            </View>
-          </View>
-          <Ionicons name="chevron-forward" size={20} color="#ccc" />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingLeft}>
-            <Ionicons name="shield-outline" size={24} color="#2f95dc" />
-            <View style={styles.settingText}>
-              <Text style={styles.settingTitle}>Privacidad</Text>
-              <Text style={styles.settingSubtitle}>Configurar privacidad</Text>
-            </View>
-          </View>
-          <Ionicons name="chevron-forward" size={20} color="#ccc" />
-        </TouchableOpacity>
       </View>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Información</Text>
-        
-        <TouchableOpacity style={styles.settingItem}>
-          <View style={styles.settingLeft}>
-            <Ionicons name="help-circle-outline" size={24} color="#2f95dc" />
-            <View style={styles.settingText}>
-              <Text style={styles.settingTitle}>Ayuda y FAQ</Text>
-              <Text style={styles.settingSubtitle}>Preguntas frecuentes</Text>
-            </View>
-          </View>
-          <Ionicons name="chevron-forward" size={20} color="#ccc" />
-        </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingItem} onPress={handleContactSupport}>
           <View style={styles.settingLeft}>
@@ -171,7 +120,7 @@ export default function PerfilScreen() {
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>Deficiencias Viales v1.0.0</Text>
-        <Text style={styles.footerText}>© 2024 Todos los derechos reservados</Text>
+        <Text style={styles.footerText}>© 2025 Todos los derechos reservados</Text>
       </View>
     </ScrollView>
   );

@@ -1,6 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function UserDashboard() {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function UserDashboard() {
       icon: '📝', 
       title: 'Nuevo Reporte', 
       subtitle: 'Reportar una deficiencia vial',
-      onPress: () => router.push('/(user)/(tabs)/reporte1')
+      onPress: () => router.push('/(user)/reporte1')
     },
     { 
       icon: '🔔', 
@@ -33,6 +34,8 @@ export default function UserDashboard() {
   ];
 
   return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <StatusBar style="dark" />
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.greeting}>¡Hola, Usuario!</Text>
@@ -81,6 +84,7 @@ export default function UserDashboard() {
         </View>
       </View>
     </ScrollView>
+    </SafeAreaView>
   );
 }
 
