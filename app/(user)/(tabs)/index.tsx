@@ -11,7 +11,7 @@ export default function UserDashboard() {
       icon: '📝', 
       title: 'Nuevo Reporte', 
       subtitle: 'Reportar una deficiencia vial',
-      onPress: () => router.push('/(user)/reporte1')
+      onPress: () => router.push('/(user)/ReportePaso1')
     },
   ];
 

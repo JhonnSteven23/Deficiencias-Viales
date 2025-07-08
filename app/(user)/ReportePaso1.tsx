@@ -12,25 +12,38 @@ export default function ReporteTypeScreen() {
       title: 'Bache',
       image: require('../../assets/ReporteBache.png'),
       description: 'Hoyos o daños en el pavimento',
+      color: '#FF6B6B'
     },
     {
       id: 'alcantarilla',
       title: 'Alcantarilla Dañada',
       image: require('../../assets/ReporteAlcantarilla.png'),
       description: 'Tapas rotas, hundidas o faltantes',
+      color: '#4ECDC4'
     },
     {
       id: 'poste',
       title: 'Poste Dañado',
       image: require('../../assets/ReportePoste.png'),
       description: 'Postes de luz caídos o dañados',
+      color: '#45B7D1'
     },
-
   ];
 
   const handleContinue = () => {
     if (selectedType) {
-      router.push('/(user)/reporte2');
+      const selectedReportType = reportTypes.find(type => type.id === selectedType);
+      
+      // Navegar al mapa pasando los datos del tipo seleccionado
+      router.push({
+        pathname: '/(user)/ReporteMapaScreen',
+        params: {
+          reportType: selectedType,
+          reportTitle: selectedReportType?.title || '',
+          reportDescription: selectedReportType?.description || '',
+          reportColor: selectedReportType?.color || '#007bff'
+        }
+      });
     }
   };
 
@@ -126,8 +139,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderLeftWidth: 4,
   },
-  typeIcon: {
-    fontSize: 30,
+  typeImage: {
+    width: 40,
+    height: 40,
+    resizeMode: 'contain',
     marginRight: 15,
   },
   typeContent: {
@@ -184,10 +199,4 @@ const styles = StyleSheet.create({
   continueButtonTextDisabled: {
     color: '#999',
   },
-  typeImage: {
-  width: 40,
-  height: 40,
-  resizeMode: 'contain',
-  marginRight: 15,
-}
 });
