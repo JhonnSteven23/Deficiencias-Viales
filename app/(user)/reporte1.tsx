@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function ReporteTypeScreen() {
   const router = useRouter();
@@ -10,44 +10,27 @@ export default function ReporteTypeScreen() {
     {
       id: 'bache',
       title: 'Bache',
-      icon: '🕳️',
+      image: require('../../assets/ReporteBache.png'),
       description: 'Hoyos o daños en el pavimento',
-      color: '#e74c3c'
     },
     {
       id: 'alcantarilla',
       title: 'Alcantarilla Dañada',
-      icon: '🔧',
+      image: require('../../assets/ReporteAlcantarilla.png'),
       description: 'Tapas rotas, hundidas o faltantes',
-      color: '#f39c12'
     },
     {
       id: 'poste',
       title: 'Poste Dañado',
-      icon: '💡',
+      image: require('../../assets/ReportePoste.png'),
       description: 'Postes de luz caídos o dañados',
-      color: '#3498db'
     },
-    {
-      id: 'señalizacion',
-      title: 'Señalización',
-      icon: '🚦',
-      description: 'Señales de tránsito dañadas',
-      color: '#27ae60'
-    },
-    {
-      id: 'otro',
-      title: 'Otro',
-      icon: '⚠️',
-      description: 'Otra deficiencia vial',
-      color: '#9b59b6'
-    },
+
   ];
 
   const handleContinue = () => {
     if (selectedType) {
-      // Aquí pasarías el tipo seleccionado al siguiente screen
-      router.push('/(user)/(tabs)/reporte2');
+      router.push('/(user)/reporte2');
     }
   };
 
@@ -69,7 +52,7 @@ export default function ReporteTypeScreen() {
             ]}
             onPress={() => setSelectedType(type.id)}
           >
-            <Text style={styles.typeIcon}>{type.icon}</Text>
+            <Image source={type.image} style={styles.typeImage} />
             <View style={styles.typeContent}>
               <Text style={styles.typeTitle}>{type.title}</Text>
               <Text style={styles.typeDescription}>{type.description}</Text>
@@ -201,4 +184,10 @@ const styles = StyleSheet.create({
   continueButtonTextDisabled: {
     color: '#999',
   },
+  typeImage: {
+  width: 40,
+  height: 40,
+  resizeMode: 'contain',
+  marginRight: 15,
+}
 });

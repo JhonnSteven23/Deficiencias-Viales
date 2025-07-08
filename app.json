@@ -14,7 +14,13 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.jhon_steven_23.DeficienciasViales",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyB6eZs3nP-LgGgGr0osURSTWyQaIZVhRjA"
+        }
+      }
     },
     "plugins": [
       "@react-native-google-signin/google-signin",
