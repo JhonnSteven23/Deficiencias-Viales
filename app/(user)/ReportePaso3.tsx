@@ -15,11 +15,9 @@ interface ReportData {
   images: string[];
 }
 
-export default function ReporteFinalScreen() {
+export default function ReportePaso3() {
   const router = useRouter();
   const params = useLocalSearchParams();
-  
-  // Obtener los datos pasados desde las pantallas anteriores
   const reportType = params.reportType as string;
   const reportTitle = params.reportTitle as string;
   const reportDescription = params.reportDescription as string;

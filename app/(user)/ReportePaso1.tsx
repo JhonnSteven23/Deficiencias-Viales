@@ -2,7 +2,7 @@ import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-export default function ReporteTypeScreen() {
+export default function ReportePaso1() {
   const router = useRouter();
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
@@ -33,10 +33,8 @@ export default function ReporteTypeScreen() {
   const handleContinue = () => {
     if (selectedType) {
       const selectedReportType = reportTypes.find(type => type.id === selectedType);
-      
-      // Navegar al mapa pasando los datos del tipo seleccionado
       router.push({
-        pathname: '/(user)/ReporteMapaScreen',
+        pathname: '../ReportePaso2',
         params: {
           reportType: selectedType,
           reportTitle: selectedReportType?.title || '',

@@ -73,7 +73,7 @@ export default function ReportePaso2() {
   const handleConfirmLocation = () => {
     if (selectedLocation) {
       router.push({
-        pathname: '/(user)/ReportePaso3',
+        pathname: '../ReportePaso3',
         params: {
           reportType: reportType,
           reportTitle: reportTitle,
