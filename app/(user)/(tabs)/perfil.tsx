@@ -45,10 +45,6 @@ export default function PerfilScreen() {
           <Text style={styles.statNumber}>8</Text>
           <Text style={styles.statLabel}>Resueltos</Text>
         </View>
-        <View style={styles.statCard}>
-          <Text style={styles.statNumber}>95%</Text>
-          <Text style={styles.statLabel}>Tasa de Resolución</Text>
-        </View>
       </View>
 
       <View style={styles.section}>

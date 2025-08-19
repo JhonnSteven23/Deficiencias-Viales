@@ -12,21 +12,21 @@ export default function ReportePaso1() {
       title: 'Bache',
       image: require('../../assets/ReporteBache.png'),
       description: 'Hoyos o daños en el pavimento',
-      color: '#FF6B6B'
+      color: '#000000ff'
     },
     {
       id: 'alcantarilla',
       title: 'Alcantarilla Dañada',
       image: require('../../assets/ReporteAlcantarilla.png'),
       description: 'Tapas rotas, hundidas o faltantes',
-      color: '#4ECDC4'
+      color: '#000000ff'
     },
     {
       id: 'poste',
       title: 'Poste Dañado',
       image: require('../../assets/ReportePoste.png'),
       description: 'Postes de luz caídos o dañados',
-      color: '#45B7D1'
+      color: '#000000ff'
     },
   ];
 

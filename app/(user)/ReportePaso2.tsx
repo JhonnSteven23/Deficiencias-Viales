@@ -119,14 +119,6 @@ export default function ReportePaso2() {
         <View style={styles.placeholder} />
       </View>
 
-      {/* Información del tipo de reporte */}
-      <View style={[styles.reportInfo, { borderLeftColor: reportColor }]}>
-        <View style={styles.reportInfoContent}>
-          <Text style={styles.reportInfoTitle}>📍 {reportTitle}</Text>
-          <Text style={styles.reportInfoDescription}>{reportDescription}</Text>
-        </View>
-      </View>
-
       {/* Mapa */}
       <View style={styles.mapContainer}>
         {location ? (
@@ -188,13 +180,6 @@ export default function ReportePaso2() {
         >
           <Text style={styles.confirmButtonText}>Continuar</Text>
         </TouchableOpacity>
-      </View>
-
-      {/* Instrucciones */}
-      <View style={styles.instructions}>
-        <Text style={styles.instructionsText}>
-          Toca el mapa para marcar la ubicación exacta del {reportTitle.toLowerCase()}
-        </Text>
       </View>
     </View>
   );
