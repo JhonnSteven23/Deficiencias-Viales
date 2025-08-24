@@ -126,7 +126,7 @@ export default function ReportePaso3() {
           {
             text: 'OK',
             onPress: () => {
-              router.push('/(user)/ReporteTypeScreen');
+              router.push('/(user)/index');
             }
           }
         ]
@@ -146,8 +146,7 @@ export default function ReportePaso3() {
           <Ionicons name="arrow-back" size={24} color="#333" />
         </TouchableOpacity>
         <View style={styles.headerContent}>
-          <Text style={styles.headerTitle}>Completar Reporte</Text>
-          <Text style={styles.headerSubtitle}>Paso 3 de 3</Text>
+          <Text style={styles.headerTitle}>Reportar una Deficiencia</Text>
         </View>
         <View style={styles.placeholder} />
       </View>
@@ -155,7 +154,7 @@ export default function ReportePaso3() {
       <ScrollView style={styles.content}>
         <View style={[styles.summaryCard, { borderLeftColor: reportColor }]}>
           <View style={styles.summaryHeader}>
-            <Text style={styles.summaryTitle}>📋 Resumen del Reporte</Text>
+            <Text style={styles.summaryTitle}>Resumen del Reporte</Text>
           </View>
           <View style={styles.summaryContent}>
             <View style={styles.summaryItem}>
@@ -168,21 +167,14 @@ export default function ReportePaso3() {
                 {latitude.toFixed(6)}, {longitude.toFixed(6)}
               </Text>
             </View>
-            <View style={styles.summaryItem}>
-              <Text style={styles.summaryLabel}>Descripción:</Text>
-              <Text style={styles.summaryValue}>{reportDescription}</Text>
-            </View>
           </View>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Descripción Detallada</Text>
-          <Text style={styles.sectionSubtitle}>
-            Describe lo que observaste y cualquier detalle adicional que sea relevante
-          </Text>
+          <Text style={styles.sectionTitle}>Descripción </Text>
           <TextInput
             style={styles.textArea}
-            placeholder="Ejemplo: El bache tiene aproximadamente 50cm de diámetro y 15cm de profundidad. Se encuentra en el carril derecho y puede ser peligroso para motociclistas..."
+            placeholder="Ejemplo: La deficiencia esta a mitad de la calle"
             value={userDescription}
             onChangeText={setUserDescription}
             multiline
@@ -196,11 +188,7 @@ export default function ReportePaso3() {
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Evidencia Fotográfica</Text>
-          <Text style={styles.sectionSubtitle}>
-            Agrega fotos que muestren claramente el problema
-          </Text>
-          
+          <Text style={styles.sectionTitle}>Evidencia Fotográfica</Text>        
           <View style={styles.imageButtons}>
             <TouchableOpacity style={styles.imageButton} onPress={takePhoto}>
               <Ionicons name="camera" size={24} color="#007AFF" />
@@ -232,9 +220,6 @@ export default function ReportePaso3() {
             <View style={styles.noImagesContainer}>
               <Ionicons name="image-outline" size={48} color="#ccc" />
               <Text style={styles.noImagesText}>No hay imágenes agregadas</Text>
-              <Text style={styles.noImagesSubtext}>
-                Agrega al menos una foto para completar el reporte
-              </Text>
             </View>
           )}
         </View>
@@ -253,10 +238,6 @@ export default function ReportePaso3() {
               {isLoading ? 'Enviando Reporte...' : 'Enviar Reporte'}
             </Text>
           </TouchableOpacity>
-          
-          <Text style={styles.submitNote}>
-            Al enviar el reporte, aceptas que la información será revisada por las autoridades competentes
-          </Text>
         </View>
       </ScrollView>
     </View>
